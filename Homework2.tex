@@ -1,0 +1,524 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[english]{babel}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1em}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[fleqn]{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes,backgrounds}
+\usepackage{cancel}
+
+
+\title{CSE 215 Homework 2}
+\author{Ivan Tinov}
+\date{October 25, 2017}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Section 5.1}
+	Compute 65 and 74. Assume the values of the variables are
+	restricted so that the expressions are defined.
+	
+	\subsection*{Problem 65}
+	$\frac{n!}{(n-k+1)}$ 
+	\newline
+	Let, $n! = n\cdot(n-1)\cdot(n-2)\cdot...\cdot3\cdot2\cdot1$
+	\newline
+	Therefore,
+	\newline
+	= $\frac{n(n-1)...(n-k+2)(n-k+1)(n-k)...3\cdot2\cdot1}{(n-k+1)(n-k)(n-k-1)...3\cdot2\cdot1}$
+	\newline
+	= $\frac{n(n-1)...(n-k+2)\cancel{(n-k+1)(n-k)...3\cdot2\cdot1}}{\cancel{(n-k+1)(n-k)(n-k-1)...3\cdot2\cdot1}}$
+	\newline
+	\newline
+	= $n(n-1)(n-2)...(n-k+2)$
+	
+	
+	\subsection*{Problem 74}
+	Prove that if p is a prime number and r is an integer with 0 $<$ r $<$ p, then ${p}\choose{r}$ is divisible by p.
+	\newline
+	Let, ${p}\choose{r}$ = $\frac{p!}{r!(p-r)!}$
+	\newline
+	= $\frac{p(p-1)!}{r(r-1)!(p-r)!}$
+	\newline
+	This implies, ${p}\choose{r}$ = $(\frac{p}{r})$ $\frac{(p-1)!}{(r-1)!((p-1)-(r-1))!}$
+	\newline
+	${p}\choose{r}$ = $(\frac{p}{r})$ ${p-1}\choose{r-1}$
+	\newline
+	$\therefore$ r${p}\choose{r}$ = p${p-1}\choose{r-1}$
+	\newline
+	Both ${p}\choose{r}$ and ${p-1}\choose{r-1}$ are integers and p can divide p${p-1}\choose{r-1}$, which states that p can also divide r${p}\choose{r}$.
+	\newline
+	However, p is a prime number and is 0 $<$ r $<$ p. So, p cannot divide r, but since it's a prime number, p divides ${p}\choose{r}$. 
+	
+	
+	
+	\section*{Section 5.2}
+	\subsection*{Problem 17}	
+	Prove the statement by mathematical induction.
+	\begin{align*}
+	 \hspace{10em}&& \prod_{i=0}^{n}(\frac{1}{2i+1}\cdot\frac{1}{2i+2}) = \frac{1}{(2n+2)!}
+	&&\parbox[t]{10em}{\raggedleft for all integers n $\geq$ 0} 
+	\end{align*}
+	\newline
+	(i) Let, n = 0
+	\newline
+	$\prod_{i=0}^{0}(\frac{1}{2i+1}\cdot\frac{1}{2i+2})$ = $\frac{1}{(2(0)+2)!}$
+	\newline
+	$\prod_{i=0}^{0}(\frac{1}{2i+1}\cdot\frac{1}{2i+2})$ = $\frac{1}{(2(0)+1)}$ $\cdot$ $\frac{1}{(2(0)+2)}$
+	\newline
+	= $\frac{1}{1}$ $\cdot$ $\frac{1}{2}$ = $\frac{1}{2!}$, so this is proven for n = 0
+	\newline
+	(ii) Let, n = k
+	\newline
+	$\prod_{i=0}^{k}(\frac{1}{2i+1}\cdot\frac{1}{2i+2})$ = $\frac{1}{(2k+2)!}$
+	\newline
+	(iii) Let, n = k+1
+	\newline
+	$\prod_{i=0}^{k+1}(\frac{1}{2i+1}\cdot\frac{1}{2i+2})$ = $\frac{1}{(2(k+1)+2)!}$
+	\newline
+	$\prod_{i=0}^{k+1}(\frac{1}{2i+1}\cdot\frac{1}{2i+2})$ = $\prod_{i=0}^{k}(\frac{1}{2i+1}\cdot\frac{1}{2i+2})$ $\cdot$ $\frac{1}{2(k+1)+1}$ $\cdot$ $\frac{1}{2(k+1)+2}$, by (ii)
+	\newline
+	= $\frac{1}{(2k+2)!}$ $\cdot$ $\frac{1}{(2k+3)}$ $\cdot$ $\frac{1}{(2k+4)}$
+	\newline
+	= $\frac{1}{(2k+4)!}$
+	\newline
+	$\therefore$ $\prod_{i=0}^{n}(\frac{1}{2i+1}\cdot\frac{1}{2i+2})$ = $\frac{1}{(2n+2)!}$, for all integer values n $\geq$ 0.
+
+	\subsection*{Problem 29}
+	Use the formula for the sum of the first n integers and/or the formula for the sum of a geometric sequence to evaluate the sum or to write in closed form.
+	
+	$1 - 2 + 2^{2} - 2^{3}$ + . . . + $(-1)^{n}$$2^{n}$, where n is a positive integer.
+	\newline
+	Goal is to find the geometric series indicated by $\sum_{i=0}^{n} r^{i}$ = $\frac{r^{n+1}-1}{r-1}$, where r is any real number except 1 and integer n $\geq$ 1.
+	\newline
+	Let, r = $-2$.
+	\newline
+	Hence, the sum of $1 - 2 + 2^{2} - 2^{3}$ + . . . + $(-1)^{n}$$2^{n}$ = $\frac{(-2)^{n+1}-1}{(-2)-1}$
+	\newline
+	= $\frac{(-2)^{n+1}-1}{-3}$
+	\newline
+	= $\frac{1-(-2)^{n+1}}{3}$
+	\newline
+	$\therefore$ Sum of the series is: $\frac{1-(-2)^{n+1}}{3}$
+	
+	
+	\section*{Section 5.3}
+	Prove each statement in 21 and 22 by mathematical induction.
+	\subsection*{Problem 21}
+	$\sqrt{n}$ $<$ $\frac{1}{\sqrt{1}}$ + $\frac{1}{\sqrt{2}}$ + . . . + $\frac{1}{\sqrt{n}}$, for all integers n $\geq$ 2.
+	\newline
+	Let, n = 2.
+	\newline
+	$\sqrt{2}$ $<$ $1$ + $\frac{1}{\sqrt{2}}$, since 2 $<$ 1 + $\sqrt{2}$ + $\frac{1}{2}$, ($\sqrt{2} > 1$)
+	\newline
+	Assume an integer $n > 2$ and the result holds for $n-1$,
+	\newline
+	that means $\sqrt{n-1}$ $<$ $1$ + $\frac{1}{\sqrt{2}}$ + . . . + $\frac{1}{\sqrt{n-1}}$
+	\newline
+	So, $\sqrt{n}$ = $\sqrt{n-1}$ + $\sqrt{n}$ $-$ $\sqrt{n-1}$ $<$ 1 + $\frac{1}{\sqrt{2}}$ + . . . + $\frac{1}{\sqrt{n-1}}$ + $\sqrt{n}$ $-$ $\sqrt{n-1}$
+	\newline
+	Therefore, this is enough to prove that $\sqrt{n}$ $-$ $\sqrt{n-1}$ $<$ $\frac{1}{\sqrt{n}}$ $\Leftrightarrow$ 1 $<$ $\frac{\sqrt{n}+\sqrt{n-1}}{\sqrt{n}}$, since $n-1 \neq 0$. The proof is proven by induction.
+	
+	
+	\subsection*{Problem 22}
+	1 + nx $\leq$ $(1 + x)^{n}$, for all real numbers $x > -1$ and integers n $\geq$ 2.
+	\newline
+	(i) n = 2
+	\newline
+	$(1+x)^{2}$ = $x^{2}+2x+1$ $\geq$ 2x+1, since $x^{2} \geq 0$
+	\newline
+	(ii) n = k
+	\newline
+	$1+kx \leq (1+x)^{k}$
+	\newline
+	(iii) n = k + 1
+	\newline
+	$1+(k+1)x \leq (1+x)^{k+1}$
+	\newline
+	$(1+x)^{k+1} = (1+x)^{k}(1+x) \geq (1+kx)(1+x)$ 
+	\newline
+	= $kx^{2}+kx+x+1 = kx^{2}+(k+1)x+1 \geq (k+1)x+1$, since $x^{2} \geq 0$
+	\newline
+	$\therefore$ By the principle of induction, $1+nx \leq (1+x)^{n}, x > -1, x \in {\Bbb R}, n \geq 2, n \in {\Bbb N}$
+	
+	\section*{Section 5.5}
+	\subsection*{Problem 12}
+	Let $s_{0}$, $s_{1}$, $s_{2}$, . . . be defined by the formula $s_{n}$ = $\frac{(-1)^{n}}{n!}$ (1) for all integers n $\geq$ 0. Show that this sequence satisfies the recurrence relation $s_{k}$ = $\frac{-s_{k-1}}{k}$.
+	\newline
+	Let, $k \geq 1$ and substitute $n = k-1$ into eq(1)
+	\newline
+	$s_{k-1}$ = $\frac{(-1)^{k-1}}{(k-1)!}$ (2)
+	\newline
+	Substitute n = k into eq(1)
+	\newline
+	$s_{k} = \frac{(-1)^{k}}{k!}$
+	\newline
+	= $\frac{(-1)(-1)^{k-1}}{k(k-1)!}$, by using $n! = n(n-1)!$ and $a^{m} \cdot a^{n} = a^{m+n}$
+	\newline
+	= $\frac{-1}{k} \cdot (\frac{(-1)^{k-1}}{(k-1)!})$
+	\newline
+	= $\frac{-1}{k} \cdot s_{k-1}$, from eq(2)
+	\newline
+	$\therefore$ $s_{k} = \frac{-s_{k-1}}{k}$, for all integer values k $\geq$ 1.
+	
+	\subsection*{Problem 28}
+	In 28 $F_{0}$, $F_{1}$, $F_{2}$, . . . is the Fibonacci sequence.
+	\newline
+	Prove that $F^{2}_{k+1} - F^{2}_{k} - F^{2}_{k-1}$ = 2$F_{k}$$F_{k-1}$, for all integers k $\geq$ 1.
+	\newline
+	$F^{2}_{k+1} - F^{2}_{k} - F^{2}_{k-1}$ = $(F^{2}_{k+1} - F^{2}_{k-1}) - F^{2}_{k}$
+	\newline
+	= $(F_{k+1} + F_{k-1})(F_{k+1} - F_{k-1}) - F^{2}_{k}$, by using $a^{2} - b^{2} = (a+b)(a-b)$.
+	\newline
+	= $(F_{k+1} + F_{k-1})(F_{k}) - F^{2}_{k}$, using $F_{k} = F_{k+1} - F_{k-1}$, for $k \geq 1$.
+	\newline
+	= $F_{k}[F_{k+1} + F_{k-1} - F_{k}]$
+	\newline
+	= $F_{k}[(F_{k+1} - F_{k}) + F_{k-1}]$
+	\newline
+	= $F_{k}[F_{k-1} + F_{k-1}]$, by using $F_{k-1} = F_{k+1} - F_{k}$, for $k \geq 1$.
+	\newline
+	= $F_{k}(2F_{k-1})$
+	\newline
+	= $2F_{k}F_{k-1}$
+	\newline
+	$\therefore$ $F^{2}_{k+1} - F^{2}_{k} - F^{2}_{k-1}$ = 2$F_{k}$$F_{k-1}$, for all integer values $k \geq 1$.
+	
+	
+	\section*{Section 5.6}
+	\subsection*{Problem 15}
+	Question 15 is a sequence defined recursively. Use iteration
+	to guess an explicit formula for the sequence. Use the formulas
+	from Section 5.2 to simplify your answers whenever possible.
+	\newline
+	$y_{k}$ = $y_{k-1}$ + $k^{2}$, for all integers k $\geq$ 2,
+	\newline
+	$y_{1}$ = 1.
+	\newline
+	Plug in $k = 2,3,4...$ into equation to get terms in the sequence
+	\newline
+	$y_{2}$ = $y_{1}$ + $2^{2}$
+	\newline
+	= $1 + 2^{2}$ , by using $y_{1} = 1$
+	\newline
+	= $1^{2} + 2^{2}$
+	\newline
+	$y_{3}$ = $y_{2}$ + $3^{2}$
+	\newline
+	= $1^{2} + 2^{2} + 3^{2}$, by using $y_{2} = 1^{2} + 2^{2}$
+	\newline
+	$y_{4}$ = $y_{3}$ + $4^{2}$
+	\newline
+	= $1^{2} + 2^{2} + 3^{2} + 4^{2}$, by using $y_{3} = 1^{2} + 2^{2} + 3^{2}$
+	\newline
+	$y_{5}$ = $y_{4}$ + $5^{2}$
+	\newline
+	= $1^{2} + 2^{2} + 3^{2} + 4^{2} + 5^{2}$, by using $y_{4} = 1^{2} + 2^{2} + 3^{2} + 4^{2}$
+	\newline
+	$y_{6}$ = $y_{5}$ + $6^{2}$
+	\newline
+	= $1^{2} + 2^{2} + 3^{2} + 4^{2} + 5^{2} + 6^{2}$, by using $y_{5} = 1^{2} + 2^{2} + 3^{2} + 4^{2} + 5^{2}$
+	\newline
+	and so on...
+	\newline
+	Sum of the squares of integer numbers is $1^{2} + 2^{2} + 3^{2} + . . . + n^{2} = \frac{n(n+1)(2n+1)}{6}$.
+	\newline
+	Now, the $n^{th}$ term will be:
+	\newline
+	$y_{n} = 1^{2} + 2^{2} + 3^{2} + 4^{2} + . . . + n^{2} = \frac{n(n+1)(2n+1)}{6}$
+	\newline
+	Hence, the explicit formula for the sequence is: $y_{n} = \frac{n(n+1)(2n+1)}{6}$, for all $n \geq 1$.
+	
+	\subsection*{Problem 46}
+	Question 46 is a sequence defined recursively. (a) Use iteration
+	to guess an explicit formula for the sequence. (b) Use strong
+	mathematical induction to verify that the formula of part (a) is
+	correct.
+	\newline
+	$s_{k}$ = 2$s_{k-2}$, for all integers k $\geq$ 2,
+	\newline
+	$s_{0}$ = 1, $s_{1}$ = 2.
+	\newline
+	Let, k = 2 in the recurrence relation
+	\newline
+	$s_{2} = 2S_{0} = 2 \cdot 1$, since $s_{0} = 1$
+	\newline
+	$s_{2} = 2$.
+	\newline
+	Let, k = 3
+	\newline
+	$s_{3} = 2S_{1} = 2 \cdot 2$, since $s_{1} = 2$
+	\newline
+	$s_{3} = 4$.
+	\newline
+	Let, k = 4
+	\newline
+	$s_{4} = 2S_{2} = 2 \cdot 2$, since $s_{2} = 2$
+	\newline
+	$s_{4} = 4$.
+	\newline
+	Let, k = 5
+	\newline
+	$s_{5} = 2S_{3} = 2 \cdot 4$, since $s_{3} = 4$
+	\newline
+	$s_{5} = 8$.
+	\newline
+	Let, k = 6
+	\newline
+	$s_{6} = 2S_{4} = 2 \cdot 4$, since $s_{4} = 4$
+	\newline
+	$s_{6} = 8$.
+	\newline
+	Let, k = 7
+	\newline
+	$s_{7} = 2S_{5} = 2 \cdot 8$, since $s_{5} = 8$
+	\newline
+	$s_{7} = 16$.
+	\newline
+	Therefore, we can assume that (1) $s_{n} = 2^{(\frac{n}{2})}$
+	\newline
+	Must prove formula above is true for n = 1
+	\newline
+	LHS of (1) = $s_{1} = 2$, by looking above
+	\newline
+	RHS of (1) = $2^{(\frac{1}{2})} = 2^{1} = 2$, since $(\frac{1}{2}) = (1 - \frac{1}{2}) = 1$
+	\newline
+	Since, LHS = RHS for $n = 1$, the result is valid for $n = 1$.
+	\newline
+	(2) Must now prove equation is true for any integer "i", and all integers "k".
+	\newline
+	Let, $0 \leq i \leq k$ and let equation be true for n = i
+	\newline
+	$s^{i} = 2^{(\frac{i}{2})}$, inductive hypothesis
+	\newline
+	Prove for n = k by using recurrence relation $s_{k} = 2 \cdot s_{k-2}$
+	\newline
+	$k = 2 \cdot 2^{(\frac{k-2}{2})}$, by using inductive hypothesis above
+	\newline
+	= \[ \begin{cases} 
+	2 \cdot 2^{\frac{k-2}{2}} & $from inductive hypothesis$ \\
+	2 \cdot 2^{\frac{k}{2} - 1} & $if k is odd$ \\
+	\end{cases}
+	\]
+	\newline
+	= \[ \begin{cases} 
+	2^{\frac{k}{2}} & $if k is even$ \\
+	2^{\frac{k}{2}} & $if k is odd$ \\
+	\end{cases}
+	\]
+	\newline
+	$\therefore$ $2s_{n} = 2^{(\frac{k}{2})}$, since the formula is true for k.
+	
+
+	\section*{Section 6.1}
+	\subsection*{Problem 17}
+	Consider the Venn diagram shown below. For each of (a)–(f),
+	copy the diagram and shade the region corresponding to the
+	indicated set.
+	\newline
+	a. A $\land$ B
+	\newline
+	b. B $\lor$ C
+	\newline
+	c. $A^{c}$
+	\newline
+	d. A - (B $\lor$ C)
+	\newline
+	e. $(A \lor B)^{c}$
+	\newline
+	f. $A^{c}$ $\land$ $B^{c}$
+	\newline
+	
+	I will use the letter "S" in the region where there is supposed to be shading.
+	\newline
+	a. 
+	\newline
+	\begin{tikzpicture}[thick]
+	\draw (2.7,-2.54) rectangle (-1.5,1.5) node[below right] {$\bm{U}$};
+	\draw (0,0) circle (1) node[above,shift={(0,1)}] {$\bm{A}$};
+	\draw (1.2,0) circle (1) node[above,shift={(0,1)}] {$\bm{B}$};
+	\draw (.6,-1.04) circle (1) node[shift={(1.1,-.6)}] {$\bm{C}$};
+	
+	\node at (.6,-.4) {S};
+	\node at (.6,.3) {S};	
+	\end{tikzpicture}
+	\newline
+	b. 
+	\newline
+	\begin{tikzpicture}[thick]
+	\draw (2.7,-2.54) rectangle (-1.5,1.5) node[below right] {$\bm{U}$};
+	\draw (0,0) circle (1) node[above,shift={(0,1)}] {$\bm{A}$};
+	\draw (1.2,0) circle (1) node[above,shift={(0,1)}] {$\bm{B}$};
+	\draw (.6,-1.04) circle (1) node[shift={(1.1,-.6)}] {$\bm{C}$};
+	
+	\node at (.6,-.4) {S};
+	\node at (1.2,-.7) {S};
+	\node at (0,-.7) {S};
+	\node at (1.4,.2) {S};
+	\node at (.6,.3) {S};
+	\node at (.3,-1.5) {S};
+	\node at (1,-1.4) {S};
+	\end{tikzpicture}
+	\newline
+	c. (everything except entire circle A)
+	\newline
+	\begin{tikzpicture}[thick]
+	\draw (2.7,-2.54) rectangle (-1.5,1.5) node[below right] {$\bm{U}$};
+	\draw (0,0) circle (1) node[above,shift={(0,1)}] {$\bm{A}$};
+	\draw (1.2,0) circle (1) node[above,shift={(0,1)}] {$\bm{B}$};
+	\draw (.6,-1.04) circle (1) node[shift={(1.1,-.6)}] {$\bm{C}$};
+	
+	\node at (1.2,-.7) {S};
+	\node at (1.4,.2) {S};
+	\node at (.3,-1.5) {S};
+	\node at (1,-1.4) {S};
+	\node at (1,-1.4) {S};
+	\node at (-1.2,-1.5) {S};
+	\node at (2.2,-1.2) {S};
+	\node at (2.2,-1.2) {S};
+	\node at (2.4,1.2) {S};
+	\node at (-1.2,0.6) {S};
+	\end{tikzpicture}
+	\newline
+	d.
+	\newline
+	\begin{tikzpicture}[thick]
+	\draw (2.7,-2.54) rectangle (-1.5,1.5) node[below right] {$\bm{U}$};
+	\draw (0,0) circle (1) node[above,shift={(0,1)}] {$\bm{A}$};
+	\draw (1.2,0) circle (1) node[above,shift={(0,1)}] {$\bm{B}$};
+	\draw (.6,-1.04) circle (1) node[shift={(1.1,-.6)}] {$\bm{C}$};
+	
+	\node at (-.2,.2) {S};
+	\node at (-.6,.3) {S};
+	\end{tikzpicture}
+	\newline
+	e. (everything except circles A and B)
+	\newline
+	\begin{tikzpicture}[thick]
+	\draw (2.7,-2.54) rectangle (-1.5,1.5) node[below right] {$\bm{U}$};
+	\draw (0,0) circle (1) node[above,shift={(0,1)}] {$\bm{A}$};
+	\draw (1.2,0) circle (1) node[above,shift={(0,1)}] {$\bm{B}$};
+	\draw (.6,-1.04) circle (1) node[shift={(1.1,-.6)}] {$\bm{C}$};
+	
+	\node at (-1.2,0.6) {S};
+	\node at (2.2,-1.2) {S};
+	\node at (-1,-2.2) {S};
+	\node at (2.4,1.2) {S};
+	\node at (.3,-1.5) {S};
+	\node at (1,-1.4) {S};
+	\node at (-1.2,-1.5) {S};
+	\end{tikzpicture}
+	\newline
+	f. $(A \lor B)^{c}$ = $A^{c}$ $\land$ $B^{c}$, by DeMorgan's Laws
+	\newline
+	Therefore parts "e" and "f" are the equal.
+	\newline
+	\begin{tikzpicture}[thick]
+	\draw (2.7,-2.54) rectangle (-1.5,1.5) node[below right] {$\bm{U}$};
+	\draw (0,0) circle (1) node[above,shift={(0,1)}] {$\bm{A}$};
+	\draw (1.2,0) circle (1) node[above,shift={(0,1)}] {$\bm{B}$};
+ 	\draw (.6,-1.04) circle (1) node[shift={(1.1,-.6)}] {$\bm{C}$};
+	
+	\node at (-1.2,0.6) {S};
+	\node at (2.2,-1.2) {S};
+	\node at (-1,-2.2) {S};
+	\node at (2.4,1.2) {S};
+	\node at (.3,-1.5) {S};
+	\node at (1,-1.4) {S};
+	\node at (-1.2,-1.5) {S};
+	\end{tikzpicture}
+	\newline
+
+	\subsection*{Problem 23}
+	Let $V_{i}$ = $\{x \in {\Bbb R}\mid -\frac{1}{i} \leq x \leq \frac{1}{i} \}$ = $[-\frac{1}{i}, \frac{1}{i}]$, for all positive integers i.
+	\newline
+	a. $\bigcup\limits_{i=1}^{4} V_{i}$ = $[-1, 1]$
+	\newline
+	b. $\bigcap\limits_{i=1}^{4} V_{i}$ = $[-\frac{1}{4}, \frac{1}{4}]$
+	\newline
+	c. Are $V_{1}$, $V_{2}$, $V_{3}$, . . . mutually disjoint? Explain.
+	\newline
+	No, they are not mutually disjoint since $[-\frac{1}{4}, \frac{1}{4}]$ is contained within the interval $[-1, 1]$.
+	\newline
+	d. $\bigcup\limits_{i=1}^{n} V_{i}$ = $[-1, 1]$
+	\newline
+	e. $\bigcap\limits_{i=1}^{n} V_{i}$ = $[-\frac{1}{n}, \frac{1}{n}]$
+	\newline
+	f. $\bigcup\limits_{i=1}^{\infty} V_{i}$ = $[-1, 1]$
+	\newline
+	g. $\bigcap\limits_{i=1}^{\infty} V_{i}$ = $[-\frac{1}{\infty}, \frac{1}{\infty}]$ = ${0}$
+	\newline
+	
+	\section*{Section 6.2}
+	Use an element argument to prove the statement in 14.
+	Assume that all sets are subsets of a universal set U.
+	\subsection*{Problem 14}
+	For all sets A, B, and C, if A $\subseteq$ B then A $\lor$ C $\subseteq$ B $\lor$ C.
+	\newline
+	Suppose A, B, and C are sets and A $\subseteq$ B.
+	\newline
+	Let $x \in A \lor C$, then by the definition of union: $x \in A $ or $ x \in C$.
+	\newline
+	In the case of $x \in A$:
+	\newline
+	Here $x \in B$ as $A \subseteq B$.
+	\newline
+	Therefore, it is true that $x \in B$ or $x \in C$.
+	\newline
+	Hence, by the definition of the union: $x \in B \lor C$.
+	\newline
+	In the case of $x \in C$:
+	\newline
+	For, $x \in B$, then it is true that $x \in B$ or $x \in C$.
+	\newline
+	Hence, by the definition of union: $x \in B \lor C$.
+	Therefore, in either of the above cases, $x \in B \lor C$.
+	\newline
+	$\therefore$ for $A \subseteq B$, A $\lor$ C $\subseteq$ B $\lor$ C is valid.
+	
+	\section*{Section 6.3}
+	In 37 and 38, construct an algebraic proof for the given statement.
+	Cite a property from Theorem 6.2.2 for every step.
+	\subsection*{Problem 37}
+	For all sets A and B, $(B^{c} \lor (B^{c} - A))^{c}$ = B.
+	\newline
+	Let A, B, and C be any set.
+	\newline
+	$(B^{c} \lor (B^{c} - A))^{c}$ = $(B^{c} \lor (B^{c} \land A^{c}))^{c}$, by the Difference Law
+	\newline
+	= $(B^{c})^{c} \land (B^{c} \land A^{c})^{c}$, by DeMorgan's Law
+	\newline
+	= $(B^{c})^{c} \land (B^{c})^{c} \lor (A^{c})^{c}$, by DeMorgan's Law
+	\newline
+	= $B \land (B \lor A)$, by Double Complement Law
+	\newline
+	= B, by Absorption Law
+	\newline
+	$\therefore$ $(B^{c} \lor (B^{c} - A))^{c}$ = B is valid.
+
+	\subsection*{Problem 38}
+	For all sets A and B, $A - (A \land B)$ = $A - B$.
+	\newline
+	Let, A and B be any two sets
+	\newline
+	$A - (A \land B) = A \land (A \land B)^{c}$, by Set Difference Law
+	\newline
+	= $A \land (A^{c} \lor B^{c})$, by DeMorgan's Law
+	\newline
+	= $(A \land A^{c}) \lor (A \land B^{c})$, by the Distributive Law
+	\newline
+	= $\phi \lor (A - B)$, by the Complement Law and Set Difference Law
+	\newline
+	= $A - B$, by the Identity Law
+	\newline
+	$\therefore$ $A - (A \land B)$ = $A - B$, is valid.
+	
+\end{document}

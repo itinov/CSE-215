@@ -1,0 +1,394 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[english]{babel}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1em}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\title{CSE 215 Homework 1}
+\author{Ivan Tinov, ID# 110255332}
+\date{September 28, 2017}
+
+\begin{document}
+
+\maketitle
+\parindent 
+
+\section*{Section 1.3}
+\subsection*{Problem 14}
+Let C = \{1, 2, 3, 4\} and D = \{a, b, c, d\}. 
+Define a function G: C $\rightarrow$ D by the following arrow diagram:
+
+\includegraphics[width=0.7\linewidth]{picture1}
+\\ \textbf{a.} Write the domain and co-domain of G.
+
+\\ The domain of function G is set C = \{1, 2, 3, 4\} and the co-domain
+of function G is the set D = \{a, b, c, d\}.
+
+\\ \textbf{b.} Find G(1), G(2), G(3), and G(4).
+
+\\ G(1) = c, G(2) = c, G(3) = c, and G(4) = c.
+\\ Therefore, G(1) = G(2) = G(3) = G(4). 
+
+\subsection*{Problem 15}
+Let X = \{2, 4, 5\} and Y = \{1, 2, 4, 6\}. Which of the following
+arrow diagrams determine functions from X to Y ?
+\\ \textbf{Part C}
+
+\includegraphics[width=0.5\linewidth]{picture2}
+
+\\ The diagram in \textbf{Part C} is \textbf{not} a function because, 4 in the domain(X) is related to both 1 and 2 in the co-domain(Y).
+\\ \textbf{Part D}
+
+\includegraphics[width=0.5\linewidth]{picture3}
+
+\\ The diagram in \textbf{Part D} is a function since, every element in the domain(X) is related to an element in the co-domain(Y). Likewise, no single element in the domain(X) is related to two different elements in the co-domain(Y);
+
+\section*{Section 2.1}
+\subsection*{Problem 39}
+Imagine that \textit{num\_orders} and \textit{num\_instock} are particular
+values, such as might occur during execution of a computer
+program. Write a negation for the following statement.
+\\ (\textit{num\_orders} $<$ 50 and \textit{num\_instock} $>$ 300) or
+(50 $\leq$ \textit{num\_orders} $<$ 75 and \textit{num\_instock} $>$ 500)
+
+\\ The logical form of this statement is (p $\wedge$ q) $\vee$ (r $\wedge$ s). It's negation has the form of $\sim$((p $\wedge$ q) $\vee$ (r $\wedge$ s)) $\equiv$ $\sim$(p $\wedge$ q) $\wedge$ $\sim$(r $\wedge$ s) $\equiv$ ($\sim$p $\vee$ $\sim$q) $\wedge$ ($\sim$r $\vee$  $\sim$s).
+
+\\Therefore, the negation of the statement is: 
+\\(\textit{num\_orders} $\geq$ 50 or \textit{num\_instock} $\leq$ 300) and
+(50 $>$ \textit{num\_orders} $\geq$ 75 or \textit{num\_instock} $\leq$ 500)
+
+\subsection*{Problem 42}
+Use a truth table to establish if the statement is a tautology or a contradiction.
+
+\\ (($\sim$p $\wedge$ q ) $\wedge$ (q $\wedge$ r )) $\wedge$ $\sim$q
+\\ Let, T = \textbf{true}, F = \textbf{false}.
+
+\begin{center}
+	\begin{tabular}{ |c|c|c|c|c|c|c|c|c| } 
+		\hline
+		p & q & r & $\sim$p & $\sim$q & $\sim$p $\wedge$ q & q $\wedge$ r & ($\sim$p $\wedge$ q) $\wedge$ (q $\wedge$ r)  & (($\sim$p $\wedge$ q ) $\wedge$ (q $\wedge$ r )) $\wedge$ $\sim$q \\ 
+		\hline
+		T & T & T & F & F & F & T & F & \textbf{F} \\ 
+		T & T & F & F & F & F & F & F & \textbf{F} \\ 
+		T & F & T & F & T & F & F & F & \textbf{F} \\ 
+		T & F & F & F & T & F & F & F & \textbf{F} \\ 
+		F & T & T & T & F & T & T & T & \textbf{F} \\ 
+		F & T & F & T & F & T & F & F & \textbf{F} \\ 
+		F & F & T & T & T & F & F & F & \textbf{F} \\ 
+		F & F & F & T & T & F & F & F & \textbf{F} \\ 
+		\hline
+	\end{tabular}
+	\end{center}
+\\ Since the truth values in the last column are all F’s ((($\sim$p $\wedge$ q ) $\wedge$ (q $\wedge$ r )) $\wedge$ $\sim$q) is a \textbf{contradiction}.
+
+\subsection*{Problem 45}
+Determine whether the statements in (a) and (b) are logically equivalent.
+
+\\ \textbf{a.} Bob is majoring in both math and computer science, and Ann is majoring in math but Ann is not majoring in both math and computer science.
+
+\\ \textbf{b.} It is not the case that both Bob and Ann are majoring in both math and computer science, but it is the case that Ann is majoring in math and Bob is majoring in both math and computer science. 
+
+\par
+\\ Let,
+
+\\ p = \textbf{Bob is majoring in both Math and Computer Science} 
+
+\\ q = \textbf{Ann is majoring in Math} 
+
+\\ r = \textbf{Ann is majoring in Math and Computer Science}.
+
+\\ Then the sentences in (a) and (b) are symbolized as (p $\wedge$ q) $\wedge$ $\sim$r for (a) and $\sim$(p $\wedge$ r) $\wedge$ (q $\wedge$ p) for (b).
+
+\\ \textbf{Note:} $\sim$(p $\wedge$ r ) $\equiv$ ($\sim$p $\vee$ $\sim$r) by DeMorgan's Laws
+
+\\ Let, T = \textbf{true}, F = \textbf{false}.
+\begin{center}
+	\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c| } 
+		\hline
+		p & q & r & $\sim$p & $\sim$r & $\sim$p $\vee$ $\sim$r & q $\wedge$ p & ($\sim$p $\vee$ $\sim$r) $\wedge$ (q $\wedge$ p) & p $\wedge$ q & (p $\wedge$ q) $\wedge$ $\sim$r  \\ 
+		\hline
+		T & T & T & F & F & F & T & \textbf{F} & T & \textbf{F}\\ 
+		T & T & F & F & T & T & T & \textbf{T} & T & \textbf{T}\\ 
+		T & F & T & F & F & F & F & \textbf{F} & F & \textbf{F}\\ 
+		T & F & F & F & T & T & F & \textbf{F} & F & \textbf{F}\\ 
+		F & T & T & T & F & T & F & \textbf{F} & F & \textbf{F}\\ 
+		F & T & F & T & T & T & F & \textbf{F} & F & \textbf{F}\\ 
+		F & F & T & T & F & T & F & \textbf{F} & F & \textbf{F}\\ 
+		F & F & F & T & T & T & F & \textbf{F} & F & \textbf{F}\\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\\ Since the truth-table values for statement (a) and statement (b) are the same throughout the column as indicated by the bold values in the table, the two statements are logically equivalent: 
+
+\\ ((p $\wedge$ q) $\wedge$ $\sim$r) $\equiv$ $\sim$(p $\wedge$ r) $\wedge$ (q $\wedge$ p)
+
+
+\subsection*{Problem 46}
+The symbol $\bigoplus$ was introduced to denote "exclusive or", so p $\bigoplus$ q $\equiv$ (p $\vee$ q) $\wedge$ $\sim$(p $\wedge$ q). Hence the truth table for exclusive or is as follows:
+
+\\ Let, T = \textbf{true}, F = \textbf{false}.
+\begin{center}
+	\begin{tabular}{ |c|c|c| } 
+		\hline
+		p & q & p $\bigoplus$ q \\ 
+		\hline
+		T & T & F \\ 
+		T & F & T \\ 
+		F & T & T \\ 
+		F & F & F \\ 
+		\hline
+	\end{tabular}
+\end{center}
+\\ \textbf{a.} Find simpler statement forms that are logically equivalent to p $\bigoplus$ p and (p $\bigoplus$ p) $\bigoplus$ p.
+
+\\ Let, T = \textbf{true}, F = \textbf{false}.
+\begin{center}
+	\begin{tabular}{ |c|c|c| } 
+		\hline
+		p & p $\bigoplus$ p  & (p $\bigoplus$ p) $\bigoplus$ p \\ 
+		\hline
+		T & F & T \\ 
+		F & F & F \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\\ Using the table above, we can conclude that p $\bigoplus$ p is a contradiction since two true values or two false values always equate to a false.
+\\ Likewise, ((p $\bigoplus$ p) $\bigoplus$ p) $\equiv$ p, since true-false equates to true and false-false equates to false and those are the same truth values that p has in the table.
+
+
+\\ \textbf{b.} Is (p $\bigoplus$ q) $\bigoplus$ r $\equiv$ p $\bigoplus$ (q $\bigoplus$ r)? Justify your answer.
+
+\\ Let, T = \textbf{true}, F = \textbf{false}.
+\begin{center}
+	\begin{tabular}{ |c|c|c|c|c|c|c| } 
+		\hline
+		p & q & r & p $\bigoplus$ q & q $\bigoplus$ r & (p $\bigoplus$ q) $\bigoplus$ r & p $\bigoplus$ (q $\bigoplus$ r) \\ 
+		\hline
+		T & T & T & F & F & \textbf{T} & \textbf{T} \\ 
+		T & T & F & F & T & \textbf{F} & \textbf{F} \\ 
+		T & F & T & T & T & \textbf{F} & \textbf{F} \\ 
+		T & F & F & T & F & \textbf{T} & \textbf{T} \\ 
+		F & T & T & T & F & \textbf{F} & \textbf{F} \\ 
+		F & T & F & T & T & \textbf{T} & \textbf{T} \\ 
+		F & F & T & F & T & \textbf{T} & \textbf{T} \\ 
+		F & F & F & F & F & \textbf{F} & \textbf{F} \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\\ Since both columns (in \textbf{bold}) for the statement on each side have the same truth-table values, they are equivalent statements and therefore, (p $\bigoplus$ q) $\bigoplus$ r $\equiv$ p $\bigoplus$ (q $\bigoplus$ r) is true.
+
+
+\\ \textbf{c.} Is (p $\bigoplus$ q) $\wedge$ r  $\equiv$ (p $\wedge$ r )  $\bigoplus$ (q $\wedge$ r)? Justify your answer.
+
+\\ Let, T = \textbf{true}, F = \textbf{false}.
+\begin{center}
+	\begin{tabular}{ |c|c|c|c|c|c|c|c| } 
+		\hline
+		p & q & r & p $\bigoplus$ q & p $\wedge$ r & q $\wedge$ r & (p $\bigoplus$ q) $\wedge$ r & (p $\wedge$ r) $\bigoplus$ (q $\wedge$ r)  \\ 
+		\hline
+		T & T & T & F & T & T & \textbf{F} & \textbf{F} \\ 
+		T & T & F & F & F & F & \textbf{F} & \textbf{F} \\ 
+		T & F & T & T & T & F & \textbf{T} & \textbf{T} \\ 
+		T & F & F & T & F & F & \textbf{F} & \textbf{F} \\
+		F & T & T & T & F & T & \textbf{T} & \textbf{T} \\ 
+		F & T & F & T & F & F & \textbf{F} & \textbf{F} \\
+		F & F & T & F & F & F & \textbf{F} & \textbf{F} \\ 
+		F & F & F & F & F & F & \textbf{F} & \textbf{F} \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\\ Since both columns (in \textbf{bold}) for the statement on each side have the same truth-table values, they are equivalent statements and therefore, (p $\bigoplus$ q) $\wedge$ r  $\equiv$ (p $\wedge$ r )  $\bigoplus$ (q $\wedge$ r) is true.
+
+\section*{Section 2.2}
+\subsection*{Problem 11}
+\\ Construct a truth-table for the following statement:
+
+\\ (p $\rightarrow$ (q $\rightarrow$ r)) $\leftrightarrow$ ((p $\wedge$ q) $\rightarrow$ r)
+
+\\ Let, T = \textbf{true}, F = \textbf{false}.
+\begin{center}
+	\begin{tabular}{ |c|c|c|c|c|c|c|c| } 
+		\hline
+		p & q & r & q $\rightarrow$ r & p $\wedge$ q & p $\rightarrow$ (q $\rightarrow$ r) & (p $\wedge$ q) $\rightarrow$ r & (p $\rightarrow$ (q $\rightarrow$ r)) $\leftrightarrow$ ((p $\wedge$ q) $\rightarrow$ r) \\ 
+		\hline
+		T & T & T & T & T & T & T & \textbf{T} \\ 
+		T & T & F & F & T & F & F & \textbf{T} \\ 
+		T & F & T & T & F & T & T & \textbf{T} \\ 
+		T & F & F & T & F & T & T & \textbf{T} \\
+		F & T & T & T & F & T & T & \textbf{T} \\ 
+		F & T & F & F & F & T & T & \textbf{T} \\
+		F & F & T & T & F & T & T & \textbf{T} \\ 
+		F & F & F & T & F & T & T & \textbf{T} \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\\ The last column which represents the final values of the entire statement has truth-table values corresponding to all \textbf{true} values, which is considered a \textbf{tautology}.
+
+\section*{Section 2.3}
+\subsection*{Problem 9}
+
+\\ Use truth tables to determine whether the argument form is \textbf{valid} or \textbf{invalid}. Indicate which columns represent the \textbf{premises} and which represent the \textbf{conclusion}, and include a sentence explaining how the truth table supports your answer. 
+
+\\ p $\wedge$ q $\rightarrow$ $\sim$r 
+\\ p $\vee$ $\sim$q
+\\ $\sim$q $\rightarrow$ p
+\\ $\therefore$ $\sim$r
+
+\\ Let, T = \textbf{true}, F = \textbf{false}.
+\begin{center}
+	\begin{tabular}{ |c|c|c|c|c|c|c|c|c| } 
+		\hline
+		p & q & r & $\sim$r & $\sim$q & p $\wedge$ q & (p $\wedge$ q) $\rightarrow$ $\sim$r & p $\vee$ $\sim$q & $\sim$q $\rightarrow$ p\\ 
+		\hline
+		T & T & T & F & F & T & F & T & T \\ 
+		T & T & F & \textbf{T} & F & T & \textbf{T} & \textbf{T} & \textbf{T} \\ 
+		T & F & T & \textit{\textbf{F}} & T & F & \textbf{T} & \textbf{T} & \textbf{T} \\ 
+		T & F & F & \textbf{T} & T & F & \textbf{T} & \textbf{T} & \textbf{T} \\
+		F & T & T & F & F & F & T & F & T \\ 
+		F & T & F & T & F & F & T & F & T \\
+		F & F & T & F & T & F & T & T & F \\ 
+		F & F & F & T & T & F & T & T & F \\
+		\hline
+	\end{tabular}
+\end{center}
+
+The above argument is \textbf{invalid} due to the truth-table above.
+\\ The \textbf{premises} are represented by the last three columns and the critical rows, where all values are true, are labeled in \textbf{bold} font. 
+\\The \textbf{conclusion} is represented by "$\sim$r" and is in the fourth column. The values part of the critical row are also in bold. However, there is a single false value that is both bold and italicized to showcase that this value is what proves that the argument is \textbf{invalid}.
+
+\subsection*{Problem 28}
+Use symbols to write the logical form of each argument. If the argument is valid, identify the rule of inference that guarantees its validity. Otherwise, state whether the converse or the inverse error is made.
+
+If there are as many rational numbers as there are
+irrational numbers, then the set of all irrational numbers
+is infinite.
+\\The set of all irrational numbers is infinite.
+\\$\therefore$ There are as many rational numbers as there are irrational numbers.
+
+Let, 
+\\p = There are as many rational numbers as there are irrational numbers.
+\\q = the set of all irrational numbers is infinite.
+
+The form of the argument is:
+\\ p $\rightarrow$ q
+\\ q
+\\ $\therefore$ p
+
+The argument is \textbf{invalid} since a \textbf{converse error} is made. This can be observed by making a truth-table:
+
+Let, T = \textbf{true}, F = \textbf{false}.
+\begin{center}
+	\begin{tabular}{ |c|c|c| } 
+		\hline
+		p & q & p $\rightarrow$ q \\ 
+		\hline
+		\textbf{T} & \textbf{T} & \textbf{T} \\ 
+		T & F & F \\ 
+		\textbf{F} & \textbf{T} & \textbf{T} \\ 
+		F & F & T \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+The values for the truth-table are represented above. The \textbf{premises} are the second and third column and the critical rows are labeled in bold font. The \textbf{conclusion} is "p" and it is located in the first column. There is a single value that is \textbf{false} for the conclusion in the third row and that is what makes this argument \textbf{invalid}.
+
+\subsection*{Problem 30}
+Use symbols to write the logical form of each argument. If the argument is valid, identify the rule of inference that guarantees its validity. Otherwise, state whether the converse or the inverse error is made.
+
+If this computer program is correct, then it produces the
+correct output when run with the test data my teacher
+gave me.
+\\ This computer program produces the correct output
+when run with the test data my teacher gave me.
+\\ $\therefore$ This computer program is correct.
+
+Let, 
+\\p = This computer program is correct.
+\\q = This computer program produces the correct output when run with the test data my teacher gave me.
+
+The form of the argument is:
+\\ p $\rightarrow$ q
+\\ q
+\\ $\therefore$ p
+
+\\ Similar to the previous question, the argument is \textbf{invalid} since a \textbf{converse error} is made. This can be observed by making a truth-table:
+
+Let, T = \textbf{true}, F = \textbf{false}.
+\begin{center}
+	\begin{tabular}{ |c|c|c| } 
+		\hline
+		p & q & p $\rightarrow$ q \\ 
+		\hline
+		\textbf{T} & \textbf{T} & \textbf{T} \\ 
+		T & F & F \\ 
+		\textbf{F} & \textbf{T} & \textbf{T} \\ 
+		F & F & T \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+The values for the truth-table are represented above. The \textbf{premises} are the second and third column and the critical rows are labeled in bold font. The \textbf{conclusion} is "p" and it is located in the first column. There is a single value that is \textbf{false} for the conclusion in the third row and that is what makes this argument \textbf{invalid}.
+
+\subsection*{Problem 44}
+A set of premises and a conclusion are given. Use the valid argument forms to deduce the conclusion from the premises, giving a reason for each step. 
+\\ a. p $\rightarrow$ q
+\\ b. r $\vee$ s
+\\ c. $\sim$s $\rightarrow$ $\sim$t
+\\ d. $\sim$q $\vee$ s
+\\ e. $\sim$s
+\\ f. $\sim$p $\wedge$ r $\rightarrow$ u
+\\ g. w $\vee$ t
+\\ h. $\therefore$ u $\wedge$ w
+\\ The correct order is given below:
+
+
+\begin{center}
+	\begin{tabular}{ |c|c|c| } 
+		\hline
+		\textbf{1}  & c. $\sim$s $\rightarrow$ $\sim$t  & by modus ponens \\ 
+					& e. $\sim$ s & \\
+					& (1) $\therefore$ $\sim$t & \\
+		\hline
+		\textbf{2} & g. w $\vee$ t & by elimination \\ 
+				   & (1) $\sim$t & \\
+				   & (2) $\therefore$w & \\
+		\hline
+		\textbf{3} & d. $\sim$q $\vee$ s & by elimination \\ 
+			 	   & e. $\sim$s & \\
+				   & (3) $\therefore$ $\sim$q & \\
+		\hline
+		\textbf{4} & a. p $\rightarrow$ q & by modus tollens \\ 
+				   & (3) $\sim$q & \\
+				   & (4) $\therefore$ $\sim$p & \\
+		\hline
+		\textbf{5} & b. r $\vee$ s & by elimination \\ 
+				   & e. $\sim$s & \\
+				   & (5) $\therefore$ r & \\
+		\hline
+		\textbf{6} & (4) $\sim$p & by conjunction \\ 
+				   & (5) r & \\
+				   & (6) $\therefore$ $\sim$p $\wedge$ r & \\
+		\hline
+		\textbf{7} & f. $\sim$p $\wedge$ r $\rightarrow$ u & by modus ponens \\ 
+				   & (6) $\sim$p $\wedge$ r & \\
+				   & (7) $\therefore$ u & \\
+		\hline
+		\textbf{8} & (7) u & by conjunction \\ 
+				   & (2) w & \\
+		           & h. $\therefore$ u $\wedge$ w & \\
+		\hline
+	\end{tabular}
+\end{center}
+
+
+\end{document}
